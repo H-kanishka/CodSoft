@@ -1,0 +1,157 @@
+package javaprograms;
+import java.util.*;
+public class NumberGame extends Thread {
+      public static void main(String[] args)
+      {
+    	  Scanner sc=new Scanner(System.in);
+    	  System.out.println("Welcome to the Number Game!!\nThe task is to guess the number using generated clues ");
+    	  Random rand=new Random();
+    	  try
+    	  {
+    		  Thread.sleep(1500);
+    	  }
+    	  catch(Exception e) {}
+    	  System.out.println("Enter number of rounds you wish to play:");
+    	  int rounds=sc.nextInt();
+    	  try
+    	  {
+    		  Thread.sleep(1500);
+    	  }
+    	  catch(Exception e) {}
+    	  for(int i=1;i<=rounds;i++)
+    	  {
+    		  
+    		  System.out.println("Enter the difficulty level:"
+    		  		+ "\n1--->Easy[There is no limit for number of rounds]"
+    		  		+ "\n2--->Difficult[There is limit for number of rounds]");
+    		  int limit=sc.nextInt();
+    		  switch(limit)
+    		  {
+    		  case 1:{
+    			  System.out.println("Opted for Easy level.");
+    			  try
+    	    	  {
+    	    		  Thread.sleep(1500);
+    	    	  }
+    	    	  catch(Exception e) {}
+    			  System.out.println("Round "+i+" begins!");
+    			  try
+    	    	  {
+    	    		  Thread.sleep(1500);
+    	    	  }
+    	    	  catch(Exception e) {}
+    			  System.out.println("Random number has been generated.");
+    			  int randomNumber=1+rand.nextInt(100);
+    			  int count=1;
+    			  while(true)
+    			  {
+    				  System.out.println("Enter your guess number "+count+" :");
+    				  int guess=sc.nextInt();
+    				  if(guess > randomNumber)
+    				  {
+    					  try
+    			    	  {
+    			    		  Thread.sleep(1500);
+    			    	  }
+    			    	  catch(Exception e) {}
+    					  System.out.println("The number "+guess+" is LARGER than the random number\nTry with the new guess");
+    				  }
+    				  else if(guess < randomNumber)
+    				  {
+    					  try
+    			    	  {
+    			    		  Thread.sleep(1500);
+    			    	  }
+    			    	  catch(Exception e) {}
+    					  System.out.println("The number "+guess+" is SMALLER than the random number\nTry with the new guess");
+    				  }
+    				  else
+    				  {
+    					  try
+    			    	  {
+    			    		  Thread.sleep(1500);
+    			    	  }
+    			    	  catch(Exception e) {}
+    					  System.out.println("HURRAY! YOU FOUND THE NUMBER!!!");
+    					  try
+    			    	  {
+    			    		  Thread.sleep(1500);
+    			    	  }
+    			    	  catch(Exception e) {}
+    					  System.out.println("YOUR POINTS IS:"+count);
+    					  break;
+    				  }
+    				  count++;
+    			  }
+    		  }break;
+    		  case 2:{
+    			  System.out.println("Opted for Difficult level\nSo,there is limit for number of attempts.\nThe limit is just 6");
+    			  try
+    	    	  {
+    	    		  Thread.sleep(1500);
+    	    	  }
+    	    	  catch(Exception e) {}
+    			  System.out.println("Round "+i+" begins!");
+    			  try
+    	    	  {
+    	    		  Thread.sleep(1500);
+    	    	  }
+    	    	  catch(Exception e) {}
+    			  System.out.println("Random number has been generated.");
+    			  int randomNumber=1+rand.nextInt(100);
+    			  int count=1;
+    			  while(count<=6)
+    			  {
+    				  System.out.println("Enter your guess number"+count+":");
+    				  int guess=sc.nextInt();
+    				  if(guess > randomNumber)
+    				  {
+    					  try
+    			    	  {
+    			    		  Thread.sleep(1500);
+    			    	  }
+    			    	  catch(Exception e) {}
+    					  System.out.println("The number "+guess+" is LARGER than the random number\nTry with the new guess");
+    				  }
+    				  else if(guess < randomNumber)
+    				  {
+    					  try
+    			    	  {
+    			    		  Thread.sleep(1500);
+    			    	  }
+    			    	  catch(Exception e) {}
+    					  System.out.println("The number "+guess+" is SMALLER than the random number\nTry with the new guess");
+    				  }
+    				  else
+    				  {
+    					  try
+    			    	  {
+    			    		  Thread.sleep(1500);
+    			    	  }
+    			    	  catch(Exception e) {}
+    					  System.out.println("HURRAY! YOU FOUND THE NUMBER!!!");
+    					  System.out.println("YOUR POINTS IS:"+count);
+    					  break;
+    				  }
+    				  count++; 
+    			  }
+    			  if(count>6)
+    			  {
+    				  System.out.println("OOPS! You were not able to guess the number within the 6 guess. Try with new level");
+    			  }
+    			  
+    		  }break;
+    		  
+    		  
+    		  }
+    	  }
+    	  try
+    	  {
+    		  Thread.sleep(1500);
+    	  }
+    	  catch(Exception e) {}
+    	  System.out.println("All the rounds are finished. Hope you enjoyed");
+    	  sc.close();  
+      }
+      
+}
