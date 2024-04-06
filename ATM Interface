@@ -1,0 +1,93 @@
+package javaprograms;
+import java.util.*;
+class BankAccount
+{
+	private double balance;
+	BankAccount(double balance)
+	{
+		this.balance=balance;
+	}
+	double checkbalance()
+	{
+		return balance;
+	}
+	void deposit(double amount)
+	{
+		balance+=amount;
+	}
+	void withdraw(double amount)
+	{
+		if(balance < amount)
+		{
+			System.out.println("Balance is less. You can't withdraw money");
+		}
+		else
+		{
+			balance-=amount;
+		}
+	}
+}
+class ATM
+{
+	private BankAccount account;
+	ATM(BankAccount account)
+	{
+		this.account=account;
+	}
+	public void displaymenu()
+	{
+		System.out.println("WELCOME TO ATM!!");
+		System.out.println("1. Check balance");
+		System.out.println("2. Deposit");
+		System.out.println("3. Withdraw");
+		System.out.println("4. Exit");
+	}
+	public void transaction()
+	{
+		displaymenu();
+		Scanner in=new Scanner(System.in);
+		
+		double amt;int i=1;
+		while(i<=4)
+		{
+			System.out.println("Enter your choice:");
+			int choice=in.nextInt();
+			switch(choice)
+			{
+			case 1:
+			
+				System.out.println("Your current balance: Rs."+account.checkbalance());
+				break;
+			case 2:
+				System.out.println("Enter the amount to be deposited: ");
+				amt=in.nextDouble();
+				account.deposit(amt);
+				System.out.println("DEPOSIT SUCCESSFULLY COMPLETED");
+				break;
+			case 3:
+				System.out.println("Enter the amount to be withdraw: ");
+				amt=in.nextDouble();
+				account.withdraw(amt);
+				System.out.println("WITHDRAWAL SUCCESSFULLY COMPLETED");
+                break;
+			case 4:
+				System.out.println("THANK YOU FOR USING ATM.HOPE YOU ENJOYED THE SERVICE");
+				System.exit(0);
+			     break;
+			default:
+			
+				System.out.println("Invalid choice");
+				in.close();
+			i++;
+			}
+		}
+	}
+}
+public class ATMInterface {
+        public static void main(String[] args)
+        {
+        	BankAccount userAccount=new BankAccount(10000.0);
+        	ATM atm=new ATM(userAccount);
+        	atm.transaction();
+        }
+}
