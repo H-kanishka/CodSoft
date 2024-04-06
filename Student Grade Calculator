@@ -1,0 +1,73 @@
+package javaprograms;
+
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+	String name;
+    int m1,m2,m3,m4,m5,tot;
+    double avg;char grade;
+    void getinfo()
+    {
+        Scanner in=new Scanner(System.in);
+        System.out.print("Enter name: ");
+        name=in.next();
+        System.out.print("Enter Mark 1: ");
+        m1=in.nextInt();
+        System.out.print("Enter Mark 2: ");
+        m2=in.nextInt();
+        System.out.print("Enter Mark 3: ");
+        m3=in.nextInt();
+        System.out.print("Enter Mark 4: ");
+        m4=in.nextInt();
+        System.out.print("Enter Mark 5: ");
+        m5=in.nextInt();
+        in.close();
+    }
+    void AveragePercentage()
+    {
+        tot=m1+m2+m3+m4+m5;
+        avg=tot/5.0;
+        
+    }
+    void GradeCalculator()
+    {
+        if(avg>=80)
+        {
+            grade='A';
+        }
+        else if(avg<80 && avg>=60)
+        {
+            grade='B';
+        }
+        else if(avg<60 && avg>=40)
+        {
+            grade='C';
+        }
+        else
+        {
+            grade='D';
+        }
+    }
+    void showresult()
+    {
+        System.out.println("NAME OF THE STUDENT: "+name);
+        System.out.println("MARK 1: "+m1);
+        System.out.println("MARK 2: "+m2);
+        System.out.println("MARK 3: "+m3);
+        System.out.println("MARK 4: "+m4);
+        System.out.println("MARK 5: "+m5);
+        System.out.println("TOTAL MARK: "+tot);
+        System.out.println("AVERAGE PERCENTAGE: "+avg+"%");
+        System.out.println("GRADE: "+grade);
+        
+    }
+
+
+    public static void main(String[] args){
+        StudentGradeCalculator hw=new StudentGradeCalculator();
+        hw.getinfo();
+        hw.AveragePercentage();
+        hw.GradeCalculator();
+        hw.showresult();
+    }
+}
